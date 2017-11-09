@@ -18,12 +18,14 @@ int main()
     NodeContainer nodes;
     nodes.Create(2);
 
-    NetDeviceContainer netInterfaces;
     PointToPointHelper pointHelper;
     pointHelper.SetChannelAttribute("Delay",StringValue("5ms"));
+
+    NetDeviceContainer netInterfaces;
     netInterfaces = pointHelper.Install(nodes);
 
-
+    pointHelper.EnablePcapAll(outputFolder+"pcap", true);
+    
     InternetStackHelper internetHelper;
     internetHelper.Install(nodes);
 
