@@ -25,9 +25,11 @@ set(header_files header.h)
 add_executable(NS3-proj-cmake.exe ${source_files} ${header_files})
 add_executable(first.exe examples/first.cpp ${header_files})
 add_executable(second.exe examples/second.cpp ${header_files})
+add_executable(third.exe examples/third.cpp ${header_files})
 
 
 #Link libraries to output executable
 target_link_libraries(NS3-proj-cmake.exe "${NS3_LIBRARIES}")
 target_link_libraries(first.exe "${NS3_LIBRARIES}")
 target_link_libraries(second.exe "${NS3_LIBRARIES}")
+target_link_libraries(third.exe "${NS3_LIBRARIES}")
