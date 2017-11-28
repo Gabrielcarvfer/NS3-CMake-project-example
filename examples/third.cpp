@@ -10,6 +10,8 @@
 #include <ns3/csma-module.h>
 #include <ns3/uan-module.h>
 using namespace ns3;
+
+//Adding more networks
 int main()
 {
     //LogComponentEnable ("UdpEchoClientApplication", LOG_LEVEL_ALL);
@@ -49,13 +51,13 @@ int main()
     pointHelper.SetChannelAttribute("Delay",StringValue("5ms"));
 
     //Cria conexões físicas entre os dois nós do primeiro container ( roteador = nodes(1) = nodesRede1.Get(1) )
-    netInterfacesRede1 = pointHelper.Install(nodesRede1.Get(0),nodesRede1.Get(1));
+    netInterfacesRede1.Add(pointHelper.Install(nodesRede1.Get(0),nodesRede1.Get(1)));
 
     //Cria conexões físicas entre os dois nós do segundo container ( roteador = nodes(1) = nodesRede2.Get(0) )
-    netInterfacesRede2 = pointHelper.Install(nodesRede2.Get(0),nodesRede2.Get(1));
+    netInterfacesRede2.Add(pointHelper.Install(nodesRede2.Get(0),nodesRede2.Get(1)));
 
     //Cria conexões físicas entre os dois nós do segundo container ( roteador = nodes(2) = nodesRede3.Get(0) )
-    netInterfacesRede3 = pointHelper.Install(nodesRede3.Get(0),nodesRede3.Get(1));
+    netInterfacesRede3.Add(pointHelper.Install(nodesRede3.Get(0),nodesRede3.Get(1)));
 
     //Output de todos point-to-point para pcap
     pointHelper.EnablePcapAll(outputFolder+"pcap", true);

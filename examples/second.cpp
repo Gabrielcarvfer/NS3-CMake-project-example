@@ -10,6 +10,8 @@
 #include <ns3/csma-module.h>
 #include <ns3/uan-module.h>
 using namespace ns3;
+
+//Network setup with OSLR
 int main()
 {
     //LogComponentEnable ("UdpEchoClientApplication", LOG_LEVEL_ALL);
