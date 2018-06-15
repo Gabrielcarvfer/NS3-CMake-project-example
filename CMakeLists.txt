@@ -22,13 +22,17 @@ set(examples
         first
         second
         third
-        fourth)
+        fourth
+        lte_first
+        lte_second
+        dyn_package
+        poc_scenario_1)
 
-add_executable(NS3-proj-cmake.exe source.cpp header.h)
+add_executable(NS3-proj-cmake.exe source.cc header.h)
 #Link libraries to output executable
 target_link_libraries(NS3-proj-cmake.exe "${NS3_LIBRARIES}")
 
 foreach(example ${examples})
-    add_executable(${example}.exe examples/${example}.cpp)
+    add_executable(${example}.exe examples/${example}.cc)
     target_link_libraries(${example}.exe "${NS3_LIBRARIES}")
 endforeach()
